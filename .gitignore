@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+
+# 个人隐私材料，严禁发布到公开仓库
+1 保研素材/
+2 Agent素材/
+个人简历*.pdf
+*.pdf
