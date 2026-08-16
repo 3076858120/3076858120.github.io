@@ -240,7 +240,8 @@ main section[id] { scroll-margin-top: 60px; }
 .project-card:hover .chips span { color: var(--ink); border-color: var(--line-strong); }
 
 /* ---------- creative ---------- */
-.creative-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 640px)); gap: 18px; justify-content: center; }
+.creative-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+.creative-grid .creative-card { width: 100%; max-width: 640px; }
 .creative-card { padding: 16px; border: 1px solid var(--line); background: var(--card); border-radius: var(--radius); transition: transform .35s var(--ease-out), border-color .35s; }
 .creative-card:hover { transform: translateY(-5px); border-color: var(--line-strong); }
 .creative-art { height: 240px; position: relative; display: flex; align-items: flex-end; justify-content: space-between; padding: 17px; margin-bottom: 19px; overflow: hidden; border-radius: 10px; }
