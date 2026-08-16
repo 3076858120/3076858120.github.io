@@ -113,7 +113,7 @@ h1, h2, h3 { letter-spacing: 0; font-weight: 700; }
 .menu-panel a:hover { color: var(--aqua); }
 
 /* ---------- shared ---------- */
-.kicker { color: var(--aqua); letter-spacing: .16em; font: 500 11px var(--font-mono); text-transform: uppercase; }
+.kicker { color: var(--aqua); letter-spacing: .16em; font: 600 13px var(--font-mono); text-transform: uppercase; }
 .section { padding: 110px 0; border-top: 1px solid var(--line); scroll-margin-top: 70px; }
 main section[id] { scroll-margin-top: 60px; }
 
@@ -177,8 +177,9 @@ main section[id] { scroll-margin-top: 60px; }
 .identity-card > p:not(.identity-status) { color: var(--muted); font-size: 13.5px; margin: 0; }
 .identity-tags { margin-top: 22px; border-top: 1px solid var(--line); padding-top: 19px; display: flex; flex-wrap: wrap; gap: 7px; }
 .identity-tags span { border: 1px solid var(--line); padding: 4px 11px; border-radius: 100px; font-size: 11.5px; color: var(--muted); }
-.identity-location { display: flex; align-items: center; gap: 7px; margin-top: 18px; color: var(--faint); font-size: 12px; }
-.identity-location svg { width: 14px; height: 14px; color: var(--aqua); }
+.identity-location { display: flex; align-items: center; gap: 7px; margin-top: 12px; color: var(--faint); font-size: 13px; text-decoration: none; transition: color .25s; }
+.identity-location:hover { color: var(--aqua); }
+.identity-location svg { width: 15px; height: 15px; color: var(--aqua); }
 .orbit-label { position: absolute; right: -6px; bottom: 60px; color: var(--faint); font: 500 10px var(--font-mono); letter-spacing: .2em; transform: rotate(90deg); transform-origin: 100% 100%; }
 .scroll-hint { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); display: grid; justify-items: center; gap: 7px; color: var(--faint); background: none; border: 0; cursor: pointer; animation: hint-bounce 2.6s ease-in-out infinite; }
 .scroll-hint span { width: 1px; height: 34px; background: linear-gradient(to bottom, transparent, var(--line-strong)); }
@@ -198,7 +199,7 @@ main section[id] { scroll-margin-top: 60px; }
 .timeline { border-top: 1px solid var(--line); }
 .timeline-item { display: grid; grid-template-columns: 62px 1fr; gap: 16px; padding: 25px 14px; border-bottom: 1px solid var(--line); border-radius: 12px; transition: background .3s; }
 .timeline-item:hover { background: color-mix(in srgb, var(--card-solid) 45%, transparent); }
-.timeline-item > span { color: var(--faint); font: 600 13px/2 var(--font-mono); transition: color .3s; }
+.timeline-item > span { color: var(--faint); font: 600 15px/1.9 var(--font-mono); transition: color .3s; }
 .timeline-item:hover > span { color: var(--aqua); }
 .timeline-item small, .education small { color: var(--aqua); font: 500 11px var(--font-mono); letter-spacing: .08em; }
 .timeline-item h3, .education h3 { margin: 4px 0; font-size: 18.5px; transition: transform .3s var(--ease-out); }
@@ -216,8 +217,8 @@ main section[id] { scroll-margin-top: 60px; }
 .research { position: relative; }
 .research::before { content: ''; position: absolute; inset: 0; background: linear-gradient(120deg, color-mix(in srgb, var(--violet) 7%, transparent), transparent 45%); pointer-events: none; }
 .research-card { position: relative; padding: 38px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-card); }
-.research-top { display: flex; justify-content: space-between; gap: 15px; color: var(--faint); font-size: 12.5px; }
-.research-index { color: var(--aqua); font-family: var(--font-mono); font-weight: 600; }
+.research-top { display: flex; justify-content: space-between; gap: 15px; color: var(--faint); font-size: 13px; }
+.research-index { color: var(--aqua); font: 600 14px var(--font-mono); }
 .research-card h3 { font-size: clamp(21px, 2.5vw, 32px); line-height: 1.5; max-width: 980px; margin: 20px 0 36px; }
 .research-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
 .research-grid > div { min-height: 128px; padding: 21px 26px 15px 0; margin-right: 26px; border-bottom: 1px solid var(--line); }
@@ -230,9 +231,9 @@ main section[id] { scroll-margin-top: 60px; }
 .project-list { border-top: 1px solid var(--line); }
 .project-card { display: grid; grid-template-columns: 84px 1fr auto; gap: 30px; align-items: center; padding: 32px 20px; border-bottom: 1px solid var(--line); cursor: pointer; transition: background .3s; }
 .project-card:hover { background: color-mix(in srgb, var(--card-solid) 50%, transparent); }
-.project-card-number { font: 700 26px/1.3 var(--font-mono); color: transparent; -webkit-text-stroke: 1px var(--faint); transition: color .35s, -webkit-text-stroke-color .35s; }
+.project-card-number { font: 700 30px/1.3 var(--font-mono); color: transparent; -webkit-text-stroke: 1px var(--faint); transition: color .35s, -webkit-text-stroke-color .35s; }
 .project-card:hover .project-card-number { color: var(--aqua); -webkit-text-stroke-color: var(--aqua); }
-.project-card-main > span, .creative-card small { color: var(--aqua); font: 500 11px var(--font-mono); letter-spacing: .12em; }
+.project-card-main > span, .creative-card small { color: var(--aqua); font: 500 12px var(--font-mono); letter-spacing: .12em; }
 .project-card h3 { margin: 7px 0; font-size: clamp(21px, 2.4vw, 27px); transition: transform .3s var(--ease-out); }
 .project-card:hover h3 { transform: translateX(6px); }
 .project-card p { color: var(--muted); margin: 0; font-size: 14.5px; }
@@ -243,6 +244,8 @@ main section[id] { scroll-margin-top: 60px; }
 .creative-card { padding: 16px; border: 1px solid var(--line); background: var(--card); border-radius: var(--radius); transition: transform .35s var(--ease-out), border-color .35s; }
 .creative-card:hover { transform: translateY(-5px); border-color: var(--line-strong); }
 .creative-art { height: 240px; position: relative; display: flex; align-items: flex-end; justify-content: space-between; padding: 17px; margin-bottom: 19px; overflow: hidden; border-radius: 10px; }
+.creative-video { height: 240px; margin-bottom: 19px; overflow: hidden; border-radius: 10px; border: 1px solid var(--line); background: #000; }
+.creative-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .creative-art::before { content: ''; position: absolute; inset: -40%; background: conic-gradient(from 0deg, transparent 0 40%, rgba(255, 255, 255, .5) 50%, transparent 60% 100%); animation: art-spin 9s linear infinite; }
 @keyframes art-spin { to { transform: rotate(360deg); } }
 .creative-art span { position: relative; color: #fff; font: 700 28px var(--font-mono); }
@@ -260,7 +263,7 @@ main section[id] { scroll-margin-top: 60px; }
 .experience-list { border-top: 1px solid var(--line); }
 .experience-row { display: grid; grid-template-columns: 140px 1.05fr 1.3fr 1.15fr; gap: 24px; align-items: start; padding: 29px 16px; border-bottom: 1px solid var(--line); border-radius: 12px; transition: background .3s; }
 .experience-row:hover { background: color-mix(in srgb, var(--card-solid) 45%, transparent); }
-.experience-row > span { color: var(--aqua); font: 500 11.5px/2.4 var(--font-mono); letter-spacing: .04em; }
+.experience-row > span { color: var(--aqua); font: 500 13px/2.2 var(--font-mono); letter-spacing: .04em; }
 .experience-row h3 { margin: 0; font-size: 18.5px; }
 .experience-row div > p { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
 .experience-description { margin: 2px 0 0; color: var(--muted); font-size: 13.5px; }
@@ -270,7 +273,7 @@ main section[id] { scroll-margin-top: 60px; }
 .award-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .award-card { padding: 27px; min-height: 200px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); transition: transform .35s var(--ease-out), border-color .35s, box-shadow .35s; }
 .award-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--aqua) 45%, var(--line)); box-shadow: var(--shadow-card); }
-.award-card > span { color: var(--faint); font: 500 11px var(--font-mono); letter-spacing: .12em; }
+.award-card > span { color: var(--faint); font: 500 12px var(--font-mono); letter-spacing: .12em; }
 .award-card h3 { margin: 16px 0 10px; max-width: 420px; font-size: 18px; line-height: 1.55; }
 .award-card b { display: inline-block; padding: 4px 13px; border-radius: 100px; background: linear-gradient(120deg, color-mix(in srgb, var(--gold) 22%, transparent), color-mix(in srgb, var(--aqua) 18%, transparent)); border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); color: var(--gold); font-size: 12.5px; font-weight: 600; }
 .award-card p { margin: 15px 0 0; color: var(--muted); font-size: 13.5px; }

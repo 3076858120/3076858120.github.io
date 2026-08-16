@@ -12,6 +12,7 @@ const Icon = ({ name }) => {
     moon: <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />,
     check: <path d="m5 13 4 4L19 7" />,
     pin: <><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></>,
+    phone: <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" />,
     github: <path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.2-.4-1.2.1-2.6 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z" fill="currentColor" stroke="none" />,
   }
   return <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg>
@@ -224,6 +225,7 @@ export default function App() {
             <p>{portfolio.profile.title}</p>
             <div className="identity-tags">{portfolio.profile.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}</div>
             <div className="identity-location"><Icon name="pin" />{portfolio.profile.location}</div>
+            {portfolio.profile.phone && <a className="identity-location" href={`tel:${portfolio.profile.phone}`}><Icon name="phone" />{portfolio.profile.phone}</a>}
           </div>
           <div className="orbit-label">DATA × AI × REAL WORLD</div>
         </aside>
@@ -270,11 +272,11 @@ export default function App() {
 
       <section id="creative" className="page-wrap section creative">
         <SectionTitle label="05 — CREATIVE LAB" title="技术之外，也保持视觉与表达的敏感度。" />
-        <div className="creative-grid">{portfolio.creative.map((item, index) => <article className="creative-card reveal spot" style={{ transitionDelay: `${index * 90}ms` }} key={item.title}><div className={`creative-art art-${index + 1}`}><span>0{index + 1}</span><Icon name="spark" /></div><small>{item.type}</small><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
+        <div className="creative-grid">{portfolio.creative.map((item, index) => <article className="creative-card reveal spot" style={{ transitionDelay: `${index * 90}ms` }} key={item.title}>{item.media?.type === 'video' ? <div className="creative-video"><video src={item.media.src} controls preload="metadata" playsInline muted loop /></div> : <div className={`creative-art art-${index + 1}`}><span>0{index + 1}</span><Icon name="spark" /></div>}<small>{item.type}</small><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
       </section>
 
       <section id="awards" className="page-wrap section awards">
-        <SectionTitle label="06 — AWARDS" title="在竞赛中完成协作、决策与交付。" text="仅展示公开的获奖名称与等级，不展示证书图像、编号或任何个人身份信息。" />
+        <SectionTitle label="06 — AWARDS" title="在竞赛中完成协作、决策与交付。" />
         <div className="award-grid">{portfolio.awards.map((item, index) => <article className="award-card reveal spot" style={{ transitionDelay: `${index * 60}ms` }} key={item.name}><span>{item.year}</span><h3>{item.name}</h3><b>{item.level}</b><p>{item.note}</p></article>)}</div>
       </section>
 
