@@ -22,8 +22,8 @@ function SectionTitle({ label, title, text }) {
 }
 
 function Media({ media }) {
-  if (media.type === 'image') return <div className="project-media"><img src={media.src} alt={media.alt} loading="lazy" /></div>
-  return <div className="project-media placeholder"><Icon name="spark" /><span>{media.alt}</span></div>
+  if (!media || media.type !== 'image') return null
+  return <div className="project-media"><img src={media.src} alt={media.alt} loading="lazy" /></div>
 }
 
 function ProjectModal({ project, onClose }) {
@@ -113,7 +113,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('')
   const { theme, toggle } = useTheme()
   const cardRef = useRef(null)
-  const navItems = [['关于', '#about'], ['科研', '#research'], ['项目', '#projects'], ['创意', '#creative'], ['经历', '#experience'], ['荣誉', '#awards'], ['联系', '#contact']]
+  const navItems = [['关于', '#about'], ['实习', '#experience'], ['科研', '#research'], ['项目', '#projects'], ['创意', '#creative'], ['荣誉', '#awards'], ['联系', '#contact']]
   const scrollTo = (href) => { setMenuOpen(false); document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }) }
 
   useEffect(() => {
@@ -244,19 +244,23 @@ export default function App() {
         </div>
       </section>
 
+      <section id="experience" className="page-wrap section experience">
+        <SectionTitle label="02 — INTERNSHIP" title="在业务现场，验证分析与自动化的价值。" />
+        <div className="experience-list">{portfolio.experience.map((item) => <article className="experience-row reveal spot" key={item.company}><span>{item.period}</span><div><h3>{item.company}</h3><p>{item.role}</p></div><p className="experience-description">{item.description}</p><div className="chips">{item.skills.map((skill) => <span key={skill}>{skill}</span>)}</div></article>)}</div>
+      </section>
+
       <section id="research" className="page-wrap section research">
-        <SectionTitle label="02 — RESEARCH" title="用模型理解不确定性。" text="研究关注能源安全、政策不确定性与可再生能源采纳；两篇论文分获期刊录用与 SCI 一区期刊在投。" />
+        <SectionTitle label="03 — RESEARCH" title="用模型理解不确定性。" text="研究关注能源安全、政策不确定性与可再生能源采纳；两篇论文分获期刊录用与 SCI 一区期刊在投。" />
         {portfolio.research.map((item, index) => <article className="research-card reveal spot" style={{ transitionDelay: `${index * 90}ms` }} key={item.title}>
           <div className="research-top"><span className="research-index">R / 0{index + 1}</span><span>{item.role}</span></div>
           <h3>{item.title}</h3>
           <div className="research-grid"><div><b>研究背景</b><p>{item.background}</p></div><div><b>研究问题</b><p>{item.question}</p></div><div><b>数据</b><p>{item.data}</p></div><div><b>成果</b><p>{item.outcome}</p></div></div>
           <div className="method-row"><div><b>方法</b><div className="chips">{item.methods.map((x) => <span key={x}>{x}</span>)}</div></div><div><b>创新</b><ul>{item.innovation.map((x) => <li key={x}>{x}</li>)}</ul></div></div>
-          <div className="visual-note"><Icon name="spark" />{item.visual}</div>
         </article>)}
       </section>
 
       <section id="projects" className="page-wrap section projects">
-        <SectionTitle label="03 — AI PROJECTS" title="把技术做成可用的解决方案。" text="从真实使用场景出发，完成产品定义、技术选型、原型实现与效果验证。" />
+        <SectionTitle label="04 — AI PROJECTS" title="把技术做成可用的解决方案。" text="从真实使用场景出发，完成产品定义、技术选型、原型实现与效果验证。" />
         <div className="project-list">{portfolio.projects.map((project, index) => <article className="project-card reveal spot" style={{ transitionDelay: `${index * 90}ms` }} key={project.id} onClick={() => setActiveProject(project)}>
           <div className="project-card-number">0{index + 1}</div>
           <div className="project-card-main"><span>{project.category} · {project.year}</span><h3>{project.title}</h3><p>{project.description}</p><div className="chips">{project.technology.slice(0, 4).map((item) => <span key={item}>{item}</span>)}</div></div>
@@ -265,13 +269,8 @@ export default function App() {
       </section>
 
       <section id="creative" className="page-wrap section creative">
-        <SectionTitle label="04 — CREATIVE LAB" title="技术之外，也保持视觉与表达的敏感度。" text="创意作品区域以可公开、可脱敏的视觉素材为准；当前保留展位，等待作品补充。" />
+        <SectionTitle label="05 — CREATIVE LAB" title="技术之外，也保持视觉与表达的敏感度。" />
         <div className="creative-grid">{portfolio.creative.map((item, index) => <article className="creative-card reveal spot" style={{ transitionDelay: `${index * 90}ms` }} key={item.title}><div className={`creative-art art-${index + 1}`}><span>0{index + 1}</span><Icon name="spark" /></div><small>{item.type}</small><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
-      </section>
-
-      <section id="experience" className="page-wrap section experience">
-        <SectionTitle label="05 — EXPERIENCE" title="在业务现场，验证分析与自动化的价值。" />
-        <div className="experience-list">{portfolio.experience.map((item) => <article className="experience-row reveal spot" key={item.company}><span>{item.period}</span><div><h3>{item.company}</h3><p>{item.role}</p></div><p className="experience-description">{item.description}</p><div className="chips">{item.skills.map((skill) => <span key={skill}>{skill}</span>)}</div></article>)}</div>
       </section>
 
       <section id="awards" className="page-wrap section awards">
