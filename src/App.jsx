@@ -13,6 +13,7 @@ const Icon = ({ name }) => {
     check: <path d="m5 13 4 4L19 7" />,
     pin: <><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></>,
     phone: <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" />,
+    mail: <><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></>,
     github: <path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.2-.4-1.2.1-2.6 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z" fill="currentColor" stroke="none" />,
   }
   return <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg>
@@ -217,7 +218,7 @@ export default function App() {
           <div className="orbit-line" />
           <span className="orbit-chip chip-a">Python</span>
           <span className="orbit-chip chip-b">AI Agent</span>
-          <span className="orbit-chip chip-c">TVP-VAR</span>
+          <span className="orbit-chip chip-c">机器学习</span>
           <div className="identity-card spot" ref={cardRef} onMouseMove={tilt} onMouseLeave={untilt}>
             <div className="monogram">雷</div>
             <span className="identity-status"><i />OPEN TO RESEARCH & BUILD</span>
@@ -226,6 +227,7 @@ export default function App() {
             <div className="identity-tags">{portfolio.profile.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}</div>
             <div className="identity-location"><Icon name="pin" />{portfolio.profile.location}</div>
             {portfolio.profile.phone && <a className="identity-location" href={`tel:${portfolio.profile.phone}`}><Icon name="phone" />{portfolio.profile.phone}</a>}
+            {portfolio.profile.email && <a className="identity-location" href={`mailto:${portfolio.profile.email}`}><Icon name="mail" />{portfolio.profile.email}</a>}
           </div>
           <div className="orbit-label">DATA × AI × REAL WORLD</div>
         </aside>
@@ -286,7 +288,6 @@ export default function App() {
           <h2>希望在研究、产品与技术的交点，<br />创造下一段值得展开的工作。</h2>
           <p>欢迎通过已约定的渠道联系交流。</p>
           <div className="final-actions">
-            {portfolio.profile.github && <a className="primary-button" href={portfolio.profile.github} target="_blank" rel="noreferrer"><Icon name="github" />GitHub</a>}
             <button className="round-button up-button" onClick={() => scrollTo('#home')} aria-label="回到顶部"><Icon name="up" /></button>
           </div>
         </div>
