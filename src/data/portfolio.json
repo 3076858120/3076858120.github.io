@@ -7,6 +7,7 @@
     "heroHighlight": "数据科学",
     "tags": ["AI Agent 开发", "数据分析", "科研建模", "Web 开发", "跨学科创新"],
     "location": "中国 · 上海",
+    "github": "https://github.com/3076858120",
     "stats": [
       { "value": 1, "suffix": " / 109", "label": "本科综合排名" },
       { "value": 8, "suffix": " 项", "label": "竞赛与学术奖项" },
